@@ -2,7 +2,7 @@ package model;
 
 import java.util.Collection;
 
-public class Programador implements Comparable<Programador>{
+public class Programador {
 	private String nombre;
 	private String telefono;
 	private String direccion;
@@ -15,9 +15,10 @@ public class Programador implements Comparable<Programador>{
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.eMail = eMail;
+		this.der = null;
+		this.izq = null;
 	}
 	
-	@Override
 	public int compareTo(Programador p) {
 		return nombre.compareToIgnoreCase(p.darNombre());
 	}
@@ -39,11 +40,10 @@ public class Programador implements Comparable<Programador>{
 	}
 	
 	public boolean esHoja() {
-		boolean esHoja = false;
 		if(izq == null && der == null) {
-			esHoja = true;
+			return true;
 		}
-		return esHoja;
+		return false;
 	}
 	
 	public Programador darMenor() {
@@ -54,18 +54,24 @@ public class Programador implements Comparable<Programador>{
 		return der;
 	}
 	
+	public void setIzq(Programador izq) {
+		this.izq = izq;
+	}
+	
+	public void setDer(Programador der) {
+		this.der = der;
+	}
+	
 	public int darAltura() {
-		
-		return 1;
+		return 0;
 	}
 	
 	public int darPeso() {
 		
-		return 1;
+		return 0;
 	}
 	
-	public void insertar() {
-		
+	public void insertar(Programador p) {
 		
 	}
 	
@@ -81,10 +87,9 @@ public class Programador implements Comparable<Programador>{
 		return p;
 	}
 	
-	public void inorden(Collection<?> programadores) {
+	public void inorden(Collection<String> acumulado) {
 		
 		
 	}
-
 	
 }
